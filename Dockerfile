@@ -1,5 +1,6 @@
 FROM debian:7.8
 MAINTAINER skyler@machina.bio
+ENV USER root
 RUN apt-get update && \
   apt-get install \
   curl \
