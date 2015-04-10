@@ -20,4 +20,11 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
+
+  Meteor.methods({
+
+    deviceReport: function (device, versions) {
+      console.log('Device', device, 'versions:', versions);
+    }
+  })
 }
