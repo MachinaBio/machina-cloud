@@ -10,7 +10,13 @@
 
 html {
   background: #000;
-  margin: 0;
+  background:
+    radial-gradient(#1c1c1c 15%, transparent 16%) 0 0,
+    radial-gradient(#1c1c1c 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.05) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.05) 15%, transparent 20%) 8px 9px;
+  background-color:#222222;
+  background-size:16px 16px;margin: 0;
   padding: 0;
 }
 
@@ -43,6 +49,7 @@ body{
   width: 960px;
   margin: 0 auto;
   padding: 0;
+  box-shadow: 0 0 25px #000;
 }
 
 header {
