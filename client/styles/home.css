@@ -218,6 +218,7 @@ header nav ul li a:hover {
 
 .bottom-blurb img {
   float: left;
+  margin: -150px 0 0;
 }
 
 .bottom-blurb p {
