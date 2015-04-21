@@ -15,6 +15,7 @@ header {
   height: 50px;
 }
 
+.home-link a:focus,
 .home-link a:hover {
   background: none;
 }

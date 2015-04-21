@@ -24,17 +24,21 @@
 
 <template name="sub_page_layout">
   <header>
-    <nav>
-      <ul>
-        <li class="home-link">
-          <a href="/">
-            <img src="/images/logo_2.svg" alt="MachinaBio Logo" height=25>
-          </a>
-        </li>
-        <li><a href="/register" class="create-an-account">Create an Account</a></li>
-        <li><a href="/login" class="login">Login</a></li>
-      </ul>
-    </nav>
+    {{#if currentUser}}
+      {{> logged_in}}
+    {{else}}
+      <nav>
+        <ul>
+          <li class="home-link">
+            <a href="/">
+              <img src="/images/logo_2.svg" alt="MachinaBio Logo" height=25>
+            </a>
+          </li>
+          <li><a href="/register" class="create-an-account">Create an Account</a></li>
+          <li><a href="/login" class="login">Login</a></li>
+        </ul>
+      </nav>
+    {{/if}}
   </header>
   <main role="main">
     {{> yield "main"}}

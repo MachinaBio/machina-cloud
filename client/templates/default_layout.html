@@ -24,17 +24,21 @@
 
 <template name="default_layout">
   <header>
-    <form class="header-subscribe" action="/subscribe" method="post">
-      <label for="notify-me-input" class="offscreen">Subscribe:</label>
-      <input name="notify-me-input" placeholder="you@example.com" type="email" required>
-      <button>Notify Me!</button>
-    </form>
-    <nav>
-      <ul>
-        <li><a href="/register" class="create-an-account">Create an Account</a></li>
-        <li><a href="/login" class="login">Login</a></li>
-      </ul>
-    </nav>
+    {{#if currentUser}}
+      {{> logged_in}}
+    {{else}}
+      <form class="header-subscribe" action="/subscribe" method="post">
+        <label for="notify-me-input" class="offscreen">Subscribe:</label>
+        <input name="notify-me-input" placeholder="you@example.com" type="email" required>
+        <button>Notify Me!</button>
+      </form>
+      <nav>
+        <ul>
+          <li><a href="/register" class="create-an-account">Create an Account</a></li>
+          <li><a href="/login" class="login">Login</a></li>
+        </ul>
+      </nav>
+    {{/if}}
   </header>
   <main role="main">
     {{> yield "main"}}
