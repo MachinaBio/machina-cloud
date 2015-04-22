@@ -1,0 +1,289 @@
+@font-face {
+  font-family: "GillSansLight";
+  src: url("/fonts/GillSans-Light.woff");
+}
+
+@font-face {
+  font-family: "GillSansSemiBold";
+  src: url("/fonts/GillSans-SemiBold.woff");
+}
+
+html {
+  background-color:#000;
+  background-image:
+    linear-gradient(rgba(255,255,255,.1) 0px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.1) 0px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)
+    ;
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px
+    ;
+  background-position:
+    -2px -2px,
+    -2px -2px,
+    -1px -1px,
+    -1px -1px
+    ;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  font: normal 18px/1.5 GillSansLight, Helvetica;
+  box-sizing: border-box;
+  outline: none;
+}
+
+p,
+span {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+strong {
+  font-family: GillSansSemiBold;
+}
+
+em {
+  color: #ffa114;
+}
+
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+body{
+  width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  background: #111;
+}
+
+header {
+  height: 50px;
+  background: #262626;
+}
+
+.offscreen {
+  text-indent: -99999px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.header-subscribe {
+  height: 100%;
+  display: inline-block;
+}
+
+.header-subscribe input {
+  height: 100%;
+  width: 300px;
+  border: none;
+  background: #373737;
+  display: inline-block;
+  text-align: center;
+  float: left;
+  transition: width 0.25s ease;
+}
+
+.header-subscribe .subscribed {
+  width: 0;
+}
+
+/*For some reason, stacking these rules breaks them in FF.*/
+.header-subscribe input::-webkit-input-placeholder {
+  color: #7e7e7e;
+}
+
+.header-subscribe input::-moz-placeholder {
+  color: #7e7e7e;
+}
+
+.header-subscribe input::-ms-placeholder {
+  color: #7e7e7e;
+}
+
+.header-subscribe input[placeholder] {
+  color: #7e7e7e;
+}
+
+.header-subscribe input:focus {
+  color: #fff;
+}
+
+input:invalid {
+  box-shadow: none;
+  outline: none;
+}
+
+.header-subscribe button {
+  border: none;
+  height: 100%;
+  padding: 0 15px;
+  margin: 0;
+  background: #262626;
+  color: #fff;
+  position: relative;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.header-subscribe button:before {
+  content: '';
+  position: absolute;
+  border-left: 10px solid #373737;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  top: 0;
+  left: 0;
+}
+
+.header-subscribe button:focus,
+.header-subscribe button:hover {
+  background: #ffa114;
+  outline: none;
+}
+
+header nav,
+header nav ul,
+header nav ul li,
+header nav ul li a {
+  display: inline-block;
+}
+
+header nav {
+  float: right;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  float: right;
+}
+
+header nav ul li a {
+  width: 200px;
+  line-height: 50px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+header nav ul li a:focus,
+header nav ul li a:hover {
+  background: #ffa114;
+  outline: none;
+}
+
+.logo {
+  text-align: center;
+  background: #000;
+  height: 100px;
+  padding: 15px 0 0;
+}
+
+.feature {
+  height: 400px;
+  overflow: hidden;
+}
+
+.feature img {
+  margin: -125px 0 0;
+}
+
+.jump-to-blurbs {
+  position: absolute;
+  left: 50%;
+  margin: -37.5px 0 0 -37.5px;
+  width: 75px;
+  height: 75px;
+  background: #000;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.jump-to-blurbs:focus,
+.jump-to-blurbs:hover {
+  background: #ffa114;
+}
+
+#blurbs {
+  background: #262626;
+}
+
+.top-blurb,
+.bottom-blurb {
+  height: 250px;
+  overflow: hidden;
+}
+
+.top-blurb p {
+  margin: 30px 500px 30px 20px;
+  text-align: justify;
+}
+
+.top-blurb img {
+  float: right;
+  margin: -150px 0 0;
+}
+
+.bottom-blurb img {
+  float: left;
+  margin: -150px 0 0;
+}
+
+.bottom-blurb p {
+  padding: 40px 20px 40px 500px;
+  text-align: justify;
+}
+
+footer {
+  border-top: 10px solid #7e7e7e;
+  height: 250px;
+  background: #1a1a1a;
+  padding: 0 20px;
+}
+
+.copyright {
+  line-height: 250px;
+  color: #7e7e7e;
+}
+
+footer nav {
+  float: right;
+  margin: 71px 0 0;
+}
+
+footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: right;
+}
+
+footer nav ul li a {
+  line-height: 2;
+  color: #7e7e7e;
+  text-decoration: none;
+  border-bottom: 1px dotted #7e7e7e;
+  transition: all 0.2s ease;
+}
+
+footer nav ul li a:focus,
+footer nav ul li a:hover {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}

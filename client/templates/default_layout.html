@@ -1,0 +1,56 @@
+<head>
+  <title>MachinaBio</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/manifest.json">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/images/mstile-144x144.png">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<template name="default_layout">
+  <header>
+    {{#if currentUser}}
+      {{> logged_in}}
+    {{else}}
+      <form class="header-subscribe" action="/subscribe" method="post">
+        <label for="notify-me-input" class="offscreen">Subscribe:</label>
+        <input name="notify-me-input" placeholder="you@example.com" type="email" required>
+        <button>Notify Me!</button>
+      </form>
+      <nav>
+        <ul>
+          <li><a href="/register" class="create-an-account">Create an Account</a></li>
+          <li><a href="/login" class="login">Login</a></li>
+        </ul>
+      </nav>
+    {{/if}}
+  </header>
+  <main role="main">
+    {{> yield "main"}}
+  </main>
+  <footer>
+    <span class="copyright">© MachinaBio {{year}}</span>
+    <nav>
+      <ul>
+        <li><a href="http://twitter.com/machinabio">@MachinaBio</a></li>
+        <li><a href="/about">About MachinaBio</a></li>
+        <li><a href="mailto:correspondence@machina.bio">Contact Us</a></li>
+      </ul>
+    </nav>
+  </footer>
+</template>
