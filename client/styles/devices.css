@@ -1,0 +1,162 @@
+.devices {
+  display: block;
+  min-height: 500px;
+}
+
+.devices-header {
+  fill: #fff;
+}
+
+.add-device-button {
+  cursor: pointer;
+}
+
+.add-device-button text {
+  fill: #ffa114;
+  transition: fill 0.2s ease;
+}
+
+.add-device-button rect {
+  transition: fill 0.2s ease;
+}
+
+.add-device-button:hover rect {
+  fill: #ffa114;
+}
+
+.add-device-button:hover text {
+  fill: #fff;
+}
+
+.dashboard-nav {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.active:focus,
+.active:hover {
+  background: none;
+  cursor: default;
+}
+
+.active-marker {
+  position: absolute;
+  left: 560px;
+}
+
+.no-devices {
+  font-size: 32px;
+}
+
+.add-device-indicator-arrow {
+  opacity: 0;
+}
+
+.add-new-device {
+  opacity: 0;
+}
+
+.add-new-device body {
+  background: none;
+}
+
+.add-new-device label {
+  float: left;
+  font: 32px/100px GillSansLight;
+  width: 340px;
+  text-align: right;
+  padding: 0 20px;
+}
+
+.add-new-device input {
+  height: 100px;
+  float: right;
+  width: 620px;
+  padding: 0 20px;
+  font-size: 32px;
+  background: #373737;
+  border: none;
+  color: #fff;
+}
+
+.add-new-device form {
+  text-align: center;
+}
+
+.submit-serial-number {
+  width: 200px;
+  height: 100px;
+  color: #fff;
+  border: none;
+  background: transparent;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.submit-serial-number:hover {
+  background: #ffa114;
+}
+
+.row-background {
+  fill: #262626;
+}
+
+.row-background:nth-child(even) {
+  fill: #1a1a1a;
+}
+
+.add-device-name body {
+  width: 100%;
+  background: none;
+  position: relative;
+}
+
+.add-device-name input {
+  height: 35px;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: 1px solid rgba(126, 126, 126, 0.25);
+  color: #7e7e7e;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.add-device-name input:focus {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.add-device-name button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background: none;
+  border: none;
+  color: #7e7e7e;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.add-device-name button:hover {
+  background: #ffa114;
+  color: #fff;
+}
+
+.add-device-name button:hover + .device-name-input {
+  border-color: #ffa114;
+}
+
+.serial-number {
+  fill: #7e7e7e;
+  font-family: SourceLight;
+}

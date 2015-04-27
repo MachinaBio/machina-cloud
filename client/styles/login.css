@@ -1,0 +1,127 @@
+main {
+  background: #1a1a1a;
+}
+
+h1 {
+  margin: 0;
+  font: normal 36px/100px GillSansSemiBold;
+  padding: 0 100px;
+  color: #fff;
+  background: #000;
+}
+
+h2 {
+  display: inline-block;
+  height: 0;
+  padding: 0 0 0 100px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+h2.error-message {
+  height: auto;
+  color: #f00;
+  position: static;
+}
+
+.login-form label {
+  line-height: 100px;
+  width: 100px;
+  float: left;
+  text-align: right;
+  padding: 0 20px;
+  color: #fff;
+  position: relative;
+}
+
+.login-form label:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 100%;
+  top: 0;
+  border-left: 20px solid transparent;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+}
+
+.login-form input {
+  height: 100px;
+  border: none;
+  width: 860px;
+  padding: 0 40px;
+  color: #7e7e7e;
+}
+
+.login-form input:focus {
+  color: #fff;
+}
+
+.email-label {
+  background: #373737;
+}
+
+label.email-label:after {
+  border-left-color: #373737;
+}
+
+.password-label {
+  background: #262626;
+}
+
+label.password-label:after {
+  border-left-color: #262626;
+}
+
+input.email-input:-webkit-autofill,
+.email-input {
+  background: #262626;
+  -webkit-box-shadow: 0 0 0 1000px #262626 inset;
+  -webkit-text-fill-color: #fff;
+}
+
+input.password-input:-webkit-autofill,
+.password-input {
+  background: #373737;
+  -webkit-box-shadow: 0 0 0 1000px #373737 inset;
+  -webkit-text-fill-color: #fff;
+}
+
+input.error {
+  background: #f00;
+}
+
+.submit-login {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  height: 100px;
+  font: 24px/1.5 GillSansLight;
+  color: #fff;
+  background: transparent;
+  border: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.submit-login:focus,
+.submit-login:hover {
+  background: #ffa114;
+}
+
+.reset-password {
+  color: #fff;
+  margin: 0 auto;
+  height: 100px;
+  width: 250px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font: 24px/100px GillSansLight;
+  transition: background 0.2s ease;
+}
+
+.reset-password:hover {
+  background: #ffa114;
+}

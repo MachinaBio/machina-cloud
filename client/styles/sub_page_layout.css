@@ -1,0 +1,25 @@
+header {
+  position: relative;
+}
+
+.home-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50px;
+}
+
+.home-link a {
+  width: auto;
+  line-height: initial;
+  height: 50px;
+}
+
+.home-link a:focus,
+.home-link a:hover {
+  background: none;
+}
+
+.home-link a img {
+  margin: 12.5px 20px;
+}

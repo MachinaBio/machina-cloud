@@ -1,0 +1,12 @@
+<template name="login">
+  <h1>Enter your credentials</h1>
+  <h2></h2>
+  <form class="login-form" action="/login" method="post">
+    <label class="email-label" for="user-email">Email</label>
+    <input class="email-input" name="user-email" placeholder="you@example.com" type="email" required>
+    <label class="password-label" for="user-password">Password</label>
+    <input class="password-input" name="user-password" placeholder="Minimum 12 characters" type="password" required>
+    <button class="submit-login">Go</button>
+  </form>
+  <a href="/reset-password" class="reset-password">Forgot your password?</a>
+</template>
