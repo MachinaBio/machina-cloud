@@ -1,11 +1,16 @@
 @font-face {
-  font-family: "GillSansLight";
-  src: url("/fonts/GillSans-Light.woff");
+  font-family: GillSansLight;
+  src: url('/fonts/GillSans-Light.woff');
 }
 
 @font-face {
-  font-family: "GillSansSemiBold";
-  src: url("/fonts/GillSans-SemiBold.woff");
+  font-family: GillSansSemiBold;
+  src: url('/fonts/GillSans-SemiBold.woff');
+}
+
+@font-face {
+  font-family: SourceLight;
+  src: url('/fonts/Source Code Powerline Light.otf');
 }
 
 html {

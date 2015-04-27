@@ -27,7 +27,7 @@ Template.register.events({
           return;
         }
 
-        Router.go('/dashboard');
+        Router.go('/devices');
 
       });
 

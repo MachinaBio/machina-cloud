@@ -1,9 +1,3 @@
-Template.default_layout.helpers({
-  year: function () {
-    return new Date().getFullYear();
-  }
-});
-
 Template.default_layout.events({
   'submit .header-subscribe': function (event) {
     event.preventDefault();

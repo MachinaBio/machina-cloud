@@ -15,12 +15,18 @@ Template.login.events({
       matchSymbol.test(password)) {
 
       Meteor.loginWithPassword(email, password, function notifyUser (err) {
+        var user;
+
         if (err) {
           element.$('h2').addClass('error-message')
             .html('Invalid login credentials.')
             ;
         } else {
-          Router.go('/dashboard');
+
+          user = Meteor.user().emails[0].address;
+          Meteor.subscribe('AquinoDevices', user, function onReady () {
+            Router.go('/devices');
+          });
         }
       });
 
