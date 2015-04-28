@@ -116,3 +116,24 @@ input.error {
 .submit-register:hover {
   background: #ffa114;
 }
+
+@media only screen and (max-width: 959px) {
+  .register-form {
+    position: relative;
+    margin: 100px 0 0;
+  }
+
+  .register-form label {
+    position: absolute;
+  }
+
+  .confirm-label {
+    top: 200px;
+    left: 0;
+  }
+
+  .register-form input {
+    width: 100%;
+    padding: 0 40px 0 140px;
+  }
+}
