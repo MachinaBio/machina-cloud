@@ -55,7 +55,7 @@ Template.reset_password.events({
           }
 
           Session.set('resetPassword', null);
-          Router.go('/dashboard');
+          Router.go('/devices');
 
       });
     } else if (password !== confirm) {

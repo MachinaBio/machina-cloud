@@ -1,11 +1,16 @@
 @font-face {
-  font-family: "GillSansLight";
-  src: url("/fonts/GillSans-Light.woff");
+  font-family: GillSansLight;
+  src: url('/fonts/GillSans-Light.woff');
 }
 
 @font-face {
-  font-family: "GillSansSemiBold";
-  src: url("/fonts/GillSans-SemiBold.woff");
+  font-family: GillSansSemiBold;
+  src: url('/fonts/GillSans-SemiBold.woff');
+}
+
+@font-face {
+  font-family: SourceLight;
+  src: url('/fonts/Source Code Powerline Light.otf');
 }
 
 html {
@@ -213,6 +218,7 @@ header nav ul li a:hover {
   background: #000;
   border-radius: 50%;
   transition: background 0.2s ease;
+  z-index: 999;
 }
 
 .jump-to-blurbs:focus,
@@ -286,4 +292,81 @@ footer nav ul li a:focus,
 footer nav ul li a:hover {
   color: #fff;
   border-bottom: 1px solid #fff;
+}
+
+@media only screen and (max-width: 959px) {
+  body {
+    width: 100%;
+  }
+
+  header nav ul li a {
+    width: 150px;
+  }
+
+  .header-subscribe input {
+    width: 150px;
+  }
+
+  #blurbs img {
+    width: 100%;
+    margin: -10% 0 0;
+  }
+
+  .top-blurb,
+  .bottom-blurb {
+    height: 500px;
+    position: relative;
+  }
+
+  .top-blurb p {
+    margin: 0;
+    padding: 60px 30px 30px;
+    position: absolute;
+    width: 100%;
+    background: #1a1a1a;
+  }
+
+  .top-blurb p:last-child {
+    top: 91px;
+    padding: 30px;
+  }
+
+  .bottom-blurb p {
+    margin: 0;
+    padding: 30px;
+    position: absolute;
+    background: #1a1a1a;
+  }
+
+  #blurbs p,
+  #blurbs p em,
+  #blurbs p strong {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+
+  header nav ul li a {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: 100%;
+  }
+
+  .header-subscribe input {
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .header-subscribe button {
+    font-size: 12px;
+    padding: 0 0 0 15px;
+  }
+
+  #blurbs img {
+    margin: 20% 0 0;
+  }
 }
