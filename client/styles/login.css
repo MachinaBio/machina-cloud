@@ -125,3 +125,36 @@ input.error {
 .reset-password:hover {
   background: #ffa114;
 }
+
+@media only screen and (max-width: 959px) {
+  .home-link img {
+    width: 150px;
+  }
+
+  main h1 {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .login-form {
+    position: relative;
+    margin: 100px 0 0;
+  }
+
+  .login-form input {
+    width: 100%;
+    padding: 0 40px 0 140px;
+  }
+
+  .login-form label {
+    position: absolute;
+  }
+
+  .password-label {
+    top: 100px;
+    left: 0;
+  }
+}
