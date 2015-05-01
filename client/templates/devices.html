@@ -5,12 +5,13 @@
     <rect x=0 y=75 width=100% height=100 fill=#bfbfbf />
     <path d="M 0 0 L 146 100 L 292 0 Z" fill=#262626 />
     <text class="devices-header" x=76.5 y=44>Registered Devices</text>
-    <text class="notification"></text>
+    <text class="notification" x=250 y=65></text>
     <g class="add-device-button">
       <rect x=760 y=0 width=200 height=75 fill=transparent />
-      <text x=800.5 y=44>+ Add a Device</text>
+      <text x=800 y=44 class="icon">+</text><text x=815 y=44 class="text">Add a Device</text>
     </g>
     {{#if deviceCount}}
+      {{> add_new_device_form}}
       <g class="column-headers">
         <text x=100 y=132 class="device-name-header">Device Name</text>
         <text x=313.5 y=132 class="serial-number-header">Serial Number</text>
@@ -22,35 +23,19 @@
       {{#each devices}}
         <g class="device-row-{{this._index}}">
           <rect class="row-background" x=0 y={{this._vertical_position}} width=100% height=100 />
-          {{#if this.name}}
-            <text class="device-name" x=85 y={{this._text_vertical_position}}>{{this.name}}</text>
-          {{else}}
           <foreignObject class="add-device-name" x=15 y={{this._input_vertical_position}} width=235 height=35>
-              <body>
-                <form class="add-device-name-form" action="/add-device-name" method="post">
-                  <button class="submit-device-name">✎</button>
-                  <input class="device-name-input" placeholder="Give this device a name">
-                </form>
-              </body>
-            </foreignObject>
-          {{/if}}
+            <body>
+              <form class="add-device-name-form" action="/add-device-name" method="post">
+                <button class="submit-device-name">✎</button>
+                <input class="device-name-input" placeholder="Give this device a name" value={{this.name}}>
+              </form>
+            </body>
+          </foreignObject>
           <text class="serial-number" x=279.5 y={{this._text_vertical_position}}>{{this._id}}</text>
         </g>
       {{/each}}
     {{else}}
-      <g class="list-header">
-        <path class="add-device-indicator-arrow" d="{{addDeviceArrowPath}}" fill=#b0b0b0 />
-        <text class="no-devices" x=55 y=135>Looks like you haven't registered any devices yet.  Wanna add one?</text>
-        <foreignObject class="add-new-device" x=0 y=75 width=100% height=200>
-          <body>
-            <form action="/add-device" method="post">
-              <label for="serial-number-input">Device serial number:</label>
-              <input name="serial-number-input" type="text" placeholder="e.g. 0000000041e2adc3" required>
-              <button class="submit-serial-number">Add This Device</button>
-            </form>
-          </body>
-        </foreignObject>
-      </g>
+      {{> add_new_device_form}}
     {{/if}}
   </svg>
 </template>

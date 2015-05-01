@@ -7,25 +7,43 @@
   fill: #fff;
 }
 
+.stop-add-device,
 .add-device-button {
   cursor: pointer;
 }
 
+.stop-add-device text,
 .add-device-button text {
   fill: #ffa114;
-  transition: fill 0.2s ease;
+  transition: all 0.2s ease;
 }
 
+.stop-add-device rect,
 .add-device-button rect {
-  transition: fill 0.2s ease;
+  transition: all 0.2s ease;
 }
 
+.stop-add-device:hover rect,
 .add-device-button:hover rect {
   fill: #ffa114;
 }
 
+.stop-add-device:hover text,
 .add-device-button:hover text {
   fill: #fff;
+}
+
+.add-device-button .icon {
+  transform-origin: 805px 38px 0;
+}
+
+.stop-add-device .icon {
+  transform-origin: 805px 38px 0;
+  transform: rotateZ(45deg);
+}
+
+.stop-add-device .text {
+  opacity: 0;
 }
 
 .dashboard-nav {
@@ -49,16 +67,26 @@
   font-size: 32px;
 }
 
-.add-device-indicator-arrow {
-  opacity: 0;
+.notification {
+  fill: #f00;
+  font-family: GillSansSemibold;
 }
 
-.add-new-device {
+.user-has-devices {
+  display: none;
+}
+
+.add-device-indicator-arrow {
   opacity: 0;
 }
 
 .add-new-device body {
   background: none;
+}
+
+.add-new-device-form {
+  display: none;
+  opacity: 0;
 }
 
 .add-new-device label {
@@ -67,17 +95,31 @@
   width: 340px;
   text-align: right;
   padding: 0 20px;
+  position: relative;
+}
+
+.add-new-device label:after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: 0;
+  border: 20px solid transparent;
+  border-left-color: #bfbfbf;
+  border-top-width: 50px;
+  border-bottom-width: 50px;
+  z-index: 99999;
 }
 
 .add-new-device input {
   height: 100px;
-  float: right;
-  width: 620px;
-  padding: 0 20px;
+  float: left;
+  width: 420px;
+  padding: 0 20px 0 40px;
   font-size: 32px;
   background: #373737;
   border: none;
   color: #fff;
+  position: relative;
 }
 
 .add-new-device form {
@@ -89,13 +131,26 @@
   height: 100px;
   color: #fff;
   border: none;
-  background: transparent;
+  background: #1a1a1a;
   transition: background 0.2s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .submit-serial-number:hover {
   background: #ffa114;
+}
+
+.submit-serial-number:before {
+  content: '';
+  border: 20px solid transparent;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 99999;
+  border-left-color: #373737;
+  border-top-width: 50px;
+  border-bottom-width: 50px;
 }
 
 .row-background {
@@ -159,4 +214,8 @@
 .serial-number {
   fill: #7e7e7e;
   font-family: SourceLight;
+}
+
+.device-name-label {
+  fill: #fff;
 }
