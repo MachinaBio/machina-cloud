@@ -6,23 +6,63 @@ Meteor.publish('AquinoDevices', function publishUserAquinoDevices (user) {
 
 Meteor.methods({
 
-  'deviceReport': function (device, versions) {
+  'deviceUpdateTimestamp': function (serial_number) {
 
-    var existingDevice = AquinoDevices.findOne(device);
-    var registered = existingDevice ? existingDevice.registered : false;
+    var timestamps = AquinoDevices.findOne(serial_number).timestamps;
+    timestamps.push(Date.now());
 
-    AquinoDevices.upsert(device, {
-      versions: versions,
-      registered: registered
+    return AquinoDevices.update(serial_number, {
+      $set: {
+        timestamps: timestamps
+      }
     });
   },
 
-  'addDevice': function (serialNumber, user) {
+  'deviceStatus': function (serial_number, status) {
 
-    var device = AquinoDevices.findOne({_id: serialNumber});
+    var timestamps = AquinoDevices.findOne(serial_number).timestamps;
+    timestamps.push(Date.now());
+
+    return AquinoDevices.update(serial_number, {
+      $set: {
+        status: status,
+        timestamps: timestamps
+      }
+    });
+  },
+
+  'deviceReport': function (serial_number, versions, jobs, devices) {
+
+    var existingDevice = AquinoDevices.findOne(serial_number);
+    var registered = existingDevice ? existingDevice.registered : false;
+    var timestamps = existingDevice.timestamps || [];
+
+    timestamps.push(Date.now());
+
+    return AquinoDevices.upsert(serial_number, {
+      $set: {
+        versions: versions,
+        registered: registered,
+        timestamps: timestamps,
+        jobs: jobs,
+        devices: devices
+      }
+    });
+  },
+
+  'addDevice': function (serial_number, user) {
+
+    var device = AquinoDevices.findOne({_id: serial_number});
+    var timestamps = device ? device.timestamps : [];
+    timestamps.push(Date.now());
 
     if (device && ! device.registered) {
-      AquinoDevices.update({_id: serialNumber}, {registered: user});
+      AquinoDevices.update({_id: serial_number}, {
+        $set: {
+          registered: user,
+          timestamps: timestamps
+        }
+      });
       return { registered: true };
 
     } else if (device && device.registered) {

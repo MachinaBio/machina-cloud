@@ -3,14 +3,9 @@ function countDevices () {
   return AquinoDevices.find().fetch();
 }
 
-function getExistingName (element) {
+function getExistingName (serial_number) {
 
-  var existingName = AquinoDevices
-    .findOne(element.find('.serial-number').innerHTML)
-    .name
-    ;
-
-  return existingName;
+  return AquinoDevices.findOne(serial_number).name;
 }
 
 var addDeviceFormActive = false;
@@ -43,10 +38,24 @@ Template.devices.helpers({
       .find({registered: user})
       .fetch()
       .map(function (device, index) {
+        var date = device.timestamps.length ?
+          new Date(device.timestamps[device.timestamps.length - 1]) :
+          false
+          ;
+
         device._index = index + 1;
         device._vertical_position = 75 + (device._index * 100);
         device._text_vertical_position = device._vertical_position + 57;
         device._input_vertical_position = device._vertical_position + 33;
+        device._shape_vertical_position = device._text_vertical_position - 5;
+        device._jobs_icon_vertical_position = device._text_vertical_position - 25;
+        device._controls_icon_vertical_position = device._text_vertical_position - 22;
+        device._status = device.status || 'Unknown';
+        device._status_class = device._status.toLowerCase();
+        device._contact = date ?
+          date.toLocaleString() :
+          '(No Contact)'
+          ;
         return device;
       })
       ;
@@ -58,56 +67,64 @@ Template.devices.events({
 
   'blur .device-name-input': function (event, element) {
 
-    var existingName = getExistingName(element);
+    var serial_number = $(event.target).parents('.add-device-name')
+      .siblings('.serial-number')
+      .html()
+      ;
 
-    if (event.target.value === '') {
-      element.find('.submit-device-name').innerHTML = '✎';
+    if ((event.target.value === '') ||
+       (event.target.value === getExistingName(serial_number))) {
+
+      $(event.target).siblings('.submit-device-name').html('✎');
     }
   },
 
   'focus .device-name-input': function (event, element) {
 
-    element.find('.submit-device-name').innerHTML = '✓';
+    $(event.target).siblings('.submit-device-name').html('✓');
   },
 
   'submit .add-device-name-form': function (event, element) {
     event.preventDefault();
-    var input = element.find('.device-name-input');
-    var serialNumber = element.find('.serial-number').innerHTML;
+    var $input = $(event.target).children('.device-name-input');
+    var serial_number = $(event.target).parents('.add-device-name')
+      .siblings('.serial-number')
+      .html()
+      ;
 
-    if ((input.value === '' && ! getExistingName(element)) ||
-       (input.value === getExistingName(element))) {
-      input.focus();
+    if (($input.val() === '' && ! getExistingName(serial_number)) ||
+       ($input.val() === getExistingName(serial_number))) {
+      $input.focus();
 
       return;
-    } else if (input.value === '') {
-      AquinoDevices.update({_id: serialNumber}, {
+    } else if ($input.val() === '') {
+      AquinoDevices.update({_id: serial_number}, {
         $unset: {
           name: ''
         }
       });
     } else {
-      AquinoDevices.update({_id: serialNumber}, {
+      AquinoDevices.update({_id: serial_number}, {
         $set: {
-          name: input.value
+          name: $input.val()
         }
       });
     }
 
-    element.find('.submit-device-name').innerHTML = '✎';
+    $(event.target).children('.submit-device-name').html('✎');
   },
 
   'submit .add-new-device-form': function (event, element) {
     event.preventDefault();
 
-    var serialNumber = element.find('input').value;
+    var serial_number = element.find('input').value;
     var user = Meteor.user().emails[0].address;
     var notification;
     var timeline;
 
     Meteor.call(
       'addDevice',
-      serialNumber,
+      serial_number,
       user,
       function reportResult () {
 
@@ -126,7 +143,7 @@ Template.devices.events({
         element.find('.notification').innerHTML = notification;
 
       } else if (result.registered) {
-        console.log('Device', serialNumber, 'now belongs to', user);
+        console.log('Device', serial_number, 'now belongs to', user);
         addDeviceFormActive = false;
 
         timeline = new TimelineMax();
