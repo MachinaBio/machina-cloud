@@ -214,8 +214,61 @@
 .serial-number {
   fill: #7e7e7e;
   font-family: SourceLight;
+  text-anchor: middle;
 }
 
 .device-name-label {
   fill: #fff;
+}
+
+.device-status {
+  text-anchor: middle;
+}
+
+.device-status.unknown {
+  fill: #7e7e7e;
+}
+
+.device-status.ready {
+ fill: #0f6;
+}
+
+.device-status.working {
+  fill: #fc0;
+}
+
+.device-status.error {
+  fill: #f03;
+}
+
+.most-recent-contact {
+  fill: #7e7e7e;
+  text-anchor: middle;
+}
+
+.controls-button,
+.jobs-button {
+  cursor: pointer;
+}
+
+.controls-button .icon,
+.jobs-button .icon {
+  fill: #7e7e7e;
+  transition: fill 0.25s ease;
+}
+
+.controls-button text,
+.jobs-button text {
+  fill: #fff;
+  text-anchor: middle;
+}
+
+.controls-button .hitbox,
+.jobs-button .hitbox {
+  fill: transparent;
+}
+
+.controls-button:hover .icon,
+.jobs-button:hover .icon {
+  fill: #ffa114;
 }
