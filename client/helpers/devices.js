@@ -12,6 +12,8 @@ var addDeviceFormActive = false;
 
 Template.devices.onRendered(function setActive () {
 
+  $('body').attr('class', '').addClass('devices');
+  $('.active').removeClass('active');
   $('.devices-link').addClass('active');
 
   TweenMax.fromTo(this.$('.add-device-indicator-arrow'), 1, {
@@ -44,6 +46,7 @@ Template.devices.helpers({
           ;
 
         device._index = index + 1;
+        device._title_name = device.name || device._id;
         device._vertical_position = 75 + (device._index * 100);
         device._text_vertical_position = device._vertical_position + 57;
         device._input_vertical_position = device._vertical_position + 33;

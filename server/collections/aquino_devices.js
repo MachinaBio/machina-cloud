@@ -6,14 +6,15 @@ Meteor.publish('AquinoDevices', function publishUserAquinoDevices (user) {
 
 Meteor.methods({
 
-  'deviceUpdateTimestamp': function (serial_number) {
+  'deviceUpdateTimestamp': function (serial_number, sessionId) {
 
     var timestamps = AquinoDevices.findOne(serial_number).timestamps;
     timestamps.push(Date.now());
 
     return AquinoDevices.update(serial_number, {
       $set: {
-        timestamps: timestamps
+        timestamps: timestamps,
+        sessionId: sessionId
       }
     });
   },
