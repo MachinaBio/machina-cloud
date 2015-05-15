@@ -157,8 +157,8 @@
   fill: #262626;
 }
 
-.row-background:nth-child(even) {
-  fill: #1a1a1a;
+.device-row:nth-child(even) .row-background {
+  fill: #1f1f1f;
 }
 
 .add-device-name body {

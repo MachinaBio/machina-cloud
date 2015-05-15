@@ -11,4 +11,23 @@ Meteor.startup(function startup () {
     ;
   }
 
+  Meteor.onConnection(function (connection) {
+    connection.onClose(function () {
+      var device = AquinoDevices.findOne({sessionId: connection.id});
+
+      if (device) {
+        var timestamps = device.timestamps;
+        var status = 'Unknown';
+
+        timestamps.push(Date.now());
+        AquinoDevices.update({sessionId: connection.id}, {
+          $set: {
+            status: status,
+            timestamps: timestamps
+          }
+        });
+      }
+    });
+  });
+
 });
