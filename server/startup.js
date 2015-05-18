@@ -17,7 +17,7 @@ Meteor.startup(function startup () {
 
       if (device) {
         var timestamps = device.timestamps;
-        var status = 'Unknown';
+        var status = 'Offline';
 
         timestamps.push(Date.now());
         AquinoDevices.update({sessionId: connection.id}, {

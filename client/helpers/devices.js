@@ -12,6 +12,9 @@ var addDeviceFormActive = false;
 
 Template.devices.onRendered(function setActive () {
 
+  // No return expected, just try to update data.
+  Meteor.call('pollUserDevices');
+
   $('body').attr('class', '').addClass('devices');
   $('.active').removeClass('active');
   $('.devices-link').addClass('active');

@@ -6,6 +6,23 @@ Meteor.publish('AquinoDevices', function publishUserAquinoDevices (user) {
 
 Meteor.methods({
 
+  'pollUserDevices': function () {
+    AquinoDevices.find({registered: Meteor.user().emails[0].address})
+      .fetch()
+      .map(function (device, index) {
+
+        if (! Meteor.server.sessions[device.sessionId]) {
+
+          AquinoDevices.update(device._id, {
+            $set: {
+              status: 'Offline'
+            }
+          });
+        }
+    });
+
+  },
+
   'deviceUpdateTimestamp': function (serial_number, sessionId) {
 
     var timestamps = AquinoDevices.findOne(serial_number).timestamps;
