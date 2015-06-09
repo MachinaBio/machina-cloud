@@ -225,6 +225,7 @@
   text-anchor: middle;
 }
 
+.device-status.offline,
 .device-status.unknown {
   fill: #7e7e7e;
 }
