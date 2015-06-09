@@ -12,6 +12,9 @@ var addDeviceFormActive = false;
 
 Template.devices.onRendered(function setActive () {
 
+  // No return expected, just try to update data.
+  Meteor.call('pollUserDevices');
+
   $('body').attr('class', '').addClass('devices');
   $('.active').removeClass('active');
   $('.devices-link').addClass('active');
@@ -67,6 +70,17 @@ Template.devices.helpers({
 });
 
 Template.devices.events({
+
+  'click .controls-button': function (event, element) {
+
+    var serial_number = $(event.target)
+      .parents('.controls-button')
+      .siblings('.serial-number')
+      .html()
+      ;
+
+      Router.go('/devices/' + serial_number + '/controls');
+  },
 
   'blur .device-name-input': function (event, element) {
 
