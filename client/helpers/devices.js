@@ -71,6 +71,17 @@ Template.devices.helpers({
 
 Template.devices.events({
 
+  'click .controls-button': function (event, element) {
+
+    var serial_number = $(event.target)
+      .parents('.controls-button')
+      .siblings('.serial-number')
+      .html()
+      ;
+
+      Router.go('/devices/' + serial_number + '/controls');
+  },
+
   'blur .device-name-input': function (event, element) {
 
     var serial_number = $(event.target).parents('.add-device-name')

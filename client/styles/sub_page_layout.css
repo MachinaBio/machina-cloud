@@ -2,6 +2,10 @@ header {
   position: relative;
 }
 
+header nav {
+  line-height: 0;
+}
+
 .home-link {
   position: absolute;
   left: 0;

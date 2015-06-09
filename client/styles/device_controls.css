@@ -1,0 +1,52 @@
+.devices-header .serial-number {
+  fill: #ffa114;
+}
+
+.device-type {
+  fill: #fff;
+}
+
+.last-temperature-read-time,
+.last-temperature-reading,
+.last-set-time,
+.last-setpoint {
+  fill: #7e7e7e;
+}
+
+.new-setpoint body {
+  background: none;
+}
+
+.submit-setpoint {
+  background: none;
+  height: 35px;
+  float: left;
+  border: none;
+  color: #7e7e7e;
+  transition: all 0.25s ease;
+}
+
+.submit-setpoint:hover {
+  background: #ffa114;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-setpoint:hover + .set-new-setpoint {
+  border-color: #ffa114;
+}
+
+.set-new-setpoint {
+  width: 50px;
+  height: 35px;
+  background: none;
+  border: 1px solid rgba(126, 126, 126, 0.25);
+  color: #7e7e7e;
+  padding: 0 5px;
+  transition: all 0.25s ease;
+}
+
+.set-new-setpoint:focus {
+  border-color: #fff;
+  color: #fff;
+}

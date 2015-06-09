@@ -4,6 +4,12 @@ Meteor.publish('AquinoDevices', function publishUserAquinoDevices (user) {
   return AquinoDevices.find({registered: user});
 });
 
+Meteor.publish('SingleDevice', function (serial_number) {
+
+  this.ready();
+  return AquinoDevices.find({_id: serial_number});
+});
+
 Meteor.methods({
 
   'pollUserDevices': function () {
@@ -54,6 +60,13 @@ Meteor.methods({
     var existingDevice = AquinoDevices.findOne(serial_number);
     var registered = existingDevice ? existingDevice.registered : false;
     var timestamps = existingDevice.timestamps || [];
+    //TODO: Just a stub for now.  Need to put this someplace sensible.
+    var controls = existingDevice.controls || {
+      Temperature: {
+        Setpoints: [],
+        Readings: []
+      }
+    };
 
     timestamps.push(Date.now());
 
@@ -63,7 +76,8 @@ Meteor.methods({
         registered: registered,
         timestamps: timestamps,
         jobs: jobs,
-        devices: devices
+        devices: devices,
+        controls: controls
       }
     });
   },
