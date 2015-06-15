@@ -58,8 +58,14 @@ Meteor.methods({
   'deviceReport': function (serial_number, versions, jobs, devices) {
 
     var existingDevice = AquinoDevices.findOne(serial_number);
-    var registered = existingDevice ? existingDevice.registered : false;
-    var timestamps = existingDevice.timestamps || [];
+    var registered = (existingDevice && existingDevice.registered) ?
+      existingDevice.registered :
+      false
+    ;
+    var timestamps = (existingDevice && existingDevice.timestamps) ?
+      existingDevice.timestamps :
+      []
+    ;
     //TODO: Just a stub for now.  Need to put this someplace sensible.
     var controls = existingDevice.controls || {
       Temperature: {
