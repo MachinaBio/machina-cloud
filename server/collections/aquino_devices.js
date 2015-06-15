@@ -67,12 +67,15 @@ Meteor.methods({
       []
     ;
     //TODO: Just a stub for now.  Need to put this someplace sensible.
-    var controls = existingDevice.controls || {
-      Temperature: {
-        Setpoints: [],
-        Readings: []
+    var controls = (existingDevice && existingDevice.controls) ?
+      existingDevice.controls :
+      {
+        Temperature: {
+          Setpoints: [],
+          Readings: []
+        }
       }
-    };
+    ;
 
     timestamps.push(Date.now());
 
