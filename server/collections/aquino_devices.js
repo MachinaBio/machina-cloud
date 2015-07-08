@@ -72,7 +72,8 @@ Meteor.methods({
       {
         Temperature: {
           Setpoints: [],
-          Readings: []
+          Readings: [],
+          Voltage: []
         }
       }
     ;
@@ -125,9 +126,16 @@ AquinoDevices.allow({
 
   update: function (userId, doc, fieldNames, modifier) {
 
-    if (userId === Meteor.user()._id &&
+    if (userId && userId === Meteor.user()._id &&
         Meteor.user().emails[0].address === doc.registered) {
 
+      return true;
+    } else if (
+      ! userId &&
+      doc.sessionId === AquinoDevices.findOne({
+        sessionId: doc.sessionId
+      }).sessionId
+    ) {
       return true;
     }
     return false;
