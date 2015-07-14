@@ -37,8 +37,8 @@ Template.device_controls.helpers({
     if (this.controls.Temperature.Readings.length) {
       index = this.controls.Temperature.Readings.length - 1;
       reading = this.controls.Temperature.Readings[index].temperature +
-        '&deg;' +
-        this.controls.Temperature.Readings[index].unit
+        '°' +
+        this.controls.Temperature.Readings[index].unit.toUpperCase()
       ;
 
       return reading;
