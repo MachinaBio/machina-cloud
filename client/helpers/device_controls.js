@@ -32,15 +32,24 @@ Template.device_controls.helpers({
   },
 
   last_temperature_reading: function () {
-    return this.controls.Temperature.Readings.length ?
-      this.controls.Temperature.Readings[this.controls.Temperature.Setpoints.length - 1].value :
-      'None'
-    ;
+    var reading;
+    var index;
+    if (this.controls.Temperature.Readings.length) {
+      index = this.controls.Temperature.Readings.length - 1;
+      reading = this.controls.Temperature.Readings[index].temperature +
+        '&deg;' +
+        this.controls.Temperature.Readings[index].unit
+      ;
+
+      return reading;
+    }
+
+    return 'None';
   },
 
   last_temperature_read_time: function () {
     var date = this.controls.Temperature.Readings.length ?
-      this.controls.Temperature.Readings[this.controls.Temperature.Setpoints.length - 1].date :
+      this.controls.Temperature.Readings[this.controls.Temperature.Readings.length - 1].date :
       'None'
     ;
 
