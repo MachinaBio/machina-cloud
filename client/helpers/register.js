@@ -31,6 +31,8 @@ Template.register.events({
 
       });
 
+      Meteor.call('addSubscriber', email);
+
     } else if (password !== confirm) {
 
       element.$('.confirm-input').addClass('error');
