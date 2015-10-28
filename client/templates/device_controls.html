@@ -7,20 +7,20 @@
     <text class="notification" x=250 y=65></text>
     <g class="column-headers">
       <text x=94 y=132 class="control-name-header">Control Name</text>
-      <text x=250 y=132 class="last-setpoint-header">Last Setpoint</text>
-      <text x=375 y=132 class="time-set-header">Time Set</text>
-      <text x=556 y=132 class="last-reading-header">Last Reading</text>
-      <text x=660 y=132 class="time-read-header">Time Read</text>
+      <text x=215 y=132 class="last-setpoint-header">Last Setpoint</text>
+      <text x=340 y=132 class="time-set-header">Time Set</text>
+      <text x=535 y=132 class="last-reading-header">Last Reading</text>
+      <text x=635 y=132 class="time-read-header">Time Read</text>
       <text x=824 y=132 class="new-setpoint-header">New Setpoint</text>
     </g>
     {{#if controls.Temperature}}
       <g class="device-row device-row-1 temperature-control">
         <rect class="row-background" x=0 y=175 width=100% height=100 />
         <text class="device-type" x=94 y=232>Temperature</text>
-        <text class="last-setpoint" x=250 y=232>{{last_temperature_setpoint}}</text>
-        <text class="last-set-time" x=375 y=232>{{last_temperature_set_time}}</text>
-        <text class="last-temperature-reading" x=556 y=232>{{last_temperature_reading}}</text>
-        <text class="last-temperature-read-time" x=660 y=232>{{last_temperature_read_time}}</text>
+        <text class="last-setpoint" x=215 y=232>{{last_temperature_setpoint}}</text>
+        <text class="last-set-time" x=340 y=232>{{last_temperature_set_time}}</text>
+        <text class="last-temperature-reading" x=535 y=232>{{last_temperature_reading}}</text>
+        <text class="last-temperature-read-time" x=635 y=232>{{last_temperature_read_time}}</text>
         <foreignObject class="new-setpoint" x=820 y=208 width=120 height=35>
           <body>
             <form class="new-setpoint-form" action="new-temperature-setpoint" method="post">

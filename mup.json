@@ -1,0 +1,23 @@
+{
+  "servers": [
+    {
+      "host": "173.246.104.192",
+      "username": "skyler",
+      "pem": "~/.ssh/id_rsa",
+      "env": {}
+    }
+  ],
+  "setupMongo": false,
+  "setupNode": false,
+  "setupPhantom": false,
+  "nodeVersion": "0.10.40",
+  "enableUploadProgressBar": true,
+  "appName": "machina-cloud",
+  "app": ".",
+  "env": {
+    "PORT": 3050,
+    "ROOT_URL": "http://machina.bio",
+    "MONGO_URL": "mongodb://localhost/machina-cloud"
+  },
+  "deployCheckWaitTime": 15
+}
