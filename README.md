@@ -15,3 +15,5 @@ Any changes to the Dockerfile necessitate creating a new image, in which case yo
 ./build.sh "foo"
 sudo docker push machinabio/machina-cloud
 ```
+
+

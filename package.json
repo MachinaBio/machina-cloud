@@ -1,0 +1,26 @@
+{
+  "name": "machina-cloud",
+  "version": "0.0.1",
+  "description": "Machina's mainportal",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrictlySkyler/machina-cloud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StrictlySkyler/machina-cloud/issues"
+  },
+  "homepage": "https://github.com/StrictlySkyler/machina-cloud#readme",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "^1.0.2"
+  }
+}
